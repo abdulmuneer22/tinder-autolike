@@ -4,16 +4,15 @@ var sleep = 250;
 // main block
 var run = setInterval(function(){
     var span = document.getElementsByTagName("span");
+	
+var base = Math.round(Math.random() * 1000)
+var likeElement = document.querySelector('[aria-label="Like"]');
+var unlikeElement = document.querySelector('[aria-label="Nope"]');
+
+if(base % 2 === 0) {
+likeElement.click()
+}else{
+	unlikeElement.click()
+}
     
-    for(var i =0; i< span.length; i++) {
-    	// if reached max likes per day then show modal and get it's content...
-        if(span[i].textContent != "Acabaram suas curtidas") {
-			
-			// Like button element
-            document.getElementsByClassName("recsGamepad__button--like")[0].click();
-       }
-       else {
-            clearInterval(run);
-       }
-    }
 }, sleep);
